@@ -39,7 +39,16 @@ public class SsoAuthorizationServerConfig extends AuthorizationServerConfigurerA
                 .secret("merryyousecrect2")
                 .authorizedGrantTypes("authorization_code", "refresh_token")
                 .scopes("all","read","write")
-                .autoApprove(true);
+                .autoApprove(true)
+//                .autoApprove(false);
+                .and()
+                .withClient("merryyou3")
+                .secret("merryyousecrect3")
+                .authorizedGrantTypes("implicit", "refresh_token")
+                .scopes("all","read","write")
+//                .autoApprove(true);
+        //                .autoApprove(false);
+                ;
     }
 
     /**

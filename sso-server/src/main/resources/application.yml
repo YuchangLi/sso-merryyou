@@ -1,6 +1,6 @@
 server:
   port: 8082
-  context-path: /uaa
+#  context-path: /uaa
 spring:
   freemarker:
     allow-request-override: false

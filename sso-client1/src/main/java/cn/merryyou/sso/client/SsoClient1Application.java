@@ -29,21 +29,30 @@ public class SsoClient1Application {
     @Autowired
     OAuth2RestTemplate oAuth2RestTemplate;
 
-    @GetMapping("/user")
-    public Authentication user(Authentication user) {
-        return user;
-    }
 
-    @Value("${messages.url:http://sso-resource:8085}/resource/api")
+//    @Value("${messages.url:http://sso-resource:8085}/resource")
+    @Value("${messages.url:http://sso-resource:8085}")
     String messagesUrl;
 
     public static void main(String[] args) {
         SpringApplication.run(SsoClient1Application.class, args);
     }
+    
+    @GetMapping("/user")
+    public Authentication user(Authentication user) {
+      return user;
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+      String result = oAuth2RestTemplate.getForObject("http://sso-tmall:8084/hello", String.class);
+      return result;
+  }
 
     @RequestMapping("/api")
     String home(Model model) {
-        String result = oAuth2RestTemplate.getForObject(messagesUrl + "/2", String.class);
+        String result = oAuth2RestTemplate.getForObject(messagesUrl + "/api/2", String.class);
+//        String result = oAuth2RestTemplate.getForObject(messagesUrl + "/hello", String.class);
         return result;
     }
 

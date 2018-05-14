@@ -27,7 +27,8 @@ public class SsoResourceServerConfig extends ResourceServerConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/**").access("#oauth2.hasScope('read')")
-                .antMatchers(HttpMethod.POST, "/api/**").access("#oauth2.hasScope('write')");
+                .antMatchers(HttpMethod.POST, "/api/**").access("#oauth2.hasScope('write')")
+                .anyRequest().authenticated();;
     }
 
     @Profile("!cloud")

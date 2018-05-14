@@ -1,7 +1,14 @@
-auth-server: http://sso-login:8082/uaa
+#auth-server: http://sso-login:8082/uaa
+auth-server: http://sso-login:8082
+
 server:
-  context-path: /client2
+#  context-path: /client2
   port: 8084
+
+spring:
+  application:
+    name: client2
+
 security:
   oauth2:
     client:

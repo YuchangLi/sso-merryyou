@@ -1,5 +1,6 @@
 package cn.merryyou.soo.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
@@ -17,10 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableOAuth2Sso
 public class SsoClient2Application {
-
+    @Value("${spring.application.name}")
+    private String app;
+    
     @GetMapping("/user")
     public Authentication user(Authentication user) {
         return user;
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+      return "hello from " + app;
     }
 
     public static void main(String[] args) {
