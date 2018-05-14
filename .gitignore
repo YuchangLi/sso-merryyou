@@ -21,3 +21,4 @@ bin/
 cargo-installs/
 atlassian-ide-plugin.xml
 .factorypath
+pom.xml.versionsBackup
