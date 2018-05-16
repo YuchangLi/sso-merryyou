@@ -12,10 +12,11 @@ spring:
 security:
   oauth2:
     client:
-      client-id: merryyou2
-      client-secret: merryyousecrect2
+      client-id: merryyou1
+      client-secret: merryyousecrect1
       user-authorization-uri: ${auth-server}/oauth/authorize
       access-token-uri: ${auth-server}/oauth/token
     resource:
+      token-info-uri: ${auth-server}/oauth/check-token
       jwt:
         key-uri: ${auth-server}/oauth/token_key
